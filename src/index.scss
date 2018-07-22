@@ -1,0 +1,201 @@
+@import 'assets/scss/variables';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $body-bg;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Style the header */
+
+header {
+    background-color: $header-bg;
+    padding: 10px;
+    color: $text-secondary;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.container {
+    height: 90vh;
+}
+
+/* Create two columns/boxes that floats next to each other */
+
+nav {
+    float: left;
+    width: 20%;
+    background: #ccc;
+    height: 100%;
+    border: 1px solid $list-border-color;
+    font-size: 0.9em;
+}
+
+/* Style the list inside the menu */
+
+
+nav ul {
+    list-style-type: none;
+    background-color: $list-group-bg;
+    padding: 0px;
+    margin: 0px;
+}
+
+nav ul li {
+    height: 50px;
+    border: 1px solid $list-border-color;
+    padding: 2px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    a {
+        text-decoration: none;
+        display: block;
+        height: 100%;
+        color: $text-primary;
+    }
+    
+}
+.active{
+  background:$list-group-bg-highlight;
+}
+article {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    background-color: $body-bg;
+    height: 100%;
+}
+
+/* Clear floats after the columns */
+
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+
+footer {
+    background-color: $footer-bg;
+    padding: 10px;
+    color: $text-secondary;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+
+@media (max-width: 600px) {
+    nav,
+    article {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.chart {
+    height: 100%;
+    background-color: white;
+    div.canvas-layout {
+        height: 100%;
+    }
+}
+
+.canvas-layout {
+    display: flex;       
+    padding: 20px;
+}
+
+#price-range {
+    position: relative;
+    width: 46px;
+    height: inherit;
+    z-index: 1;
+    font-size: 10px;
+    font-family: "fira-sans-2", Verdana, sans-serif;
+    margin: 0px 10px;
+    .tick {
+        position: relative;
+        width: 600px;
+        height: 10%;
+    }
+}
+
+ 
+
+#ohlc-chart {
+    display: flex;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #cacaca;
+    width: 100%;
+    height: inherit;
+    position: relative;
+}
+ 
+
+.ohlc {
+    height: inherit;
+    width: $bar-width;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    position: relative; 
+    .line {
+       
+        height: 100%;
+        width: $line-width;       
+        background-color: #b2ff59 ;
+    }
+    .marker {        
+        width: $marker-width;         
+        position: absolute;      
+        display:flex;         
+        .marker-open{
+            height:$marker-width/3;
+            width:$marker-width/3;
+            background-color: #33691e ;
+            position: absolute; 
+            left:0;
+        }
+        .marker-line{                      
+            width: $marker-width/3;
+            background-color: #33691e ;
+            position: absolute; 
+            left: $marker-width/3;
+        }
+        .marker-close{
+            height:$marker-width/3;
+            width: $marker-width/3;
+            background-color: #33691e ;
+            position: absolute; 
+            left: 2*( $marker-width/3);
+        }
+    }
+  
+}
+
+
+
+.spinner {    
+    border-top: 16px solid #5247ec; /* Blue */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 16px solid #efefef; 
+    animation: spinanimation 2s linear infinite;
+}
+
+@keyframes spinanimation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
