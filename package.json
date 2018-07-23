@@ -1,7 +1,7 @@
 {
-  "name": "bamboo",
+  "name": "bambu",
   "version": "1.0.0",
-  "description": "bamboo",
+  "description": "bambu",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server"
