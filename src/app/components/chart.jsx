@@ -6,7 +6,7 @@ const canvas_height = 500;
 // amount to increase max ,just for alignment
 const markerWidth = 5;
 
-function caluclateBoundary(records) {
+function calculateBoundary(records) {
     let highs = []
     let lows = []
     let keys = Object.keys(records)
@@ -89,7 +89,7 @@ function Simulate(props) {
         return (<div></div>)
     }
     keys = keys.splice(0, 30)
-    const dimens = caluclateBoundary(records);
+    const dimens = calculateBoundary(records);
     console.log('dimens ', dimens)
     let max = dimens.max;
     let min = dimens.min;
